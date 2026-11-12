@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NetPulse - Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+
+    <a class="brand" href="#">
+      <span class="brand-mark">✦</span>
+      <span>net<span class="brand-accent">pulse</span>
+        <small>NETWORK CONTROL</small>
+      </span>
+    </a>
+
+    <div class="nav-label">MENU UTAMA</div>
+
+    <nav class="nav-menu">
+      <a class="nav-link active" href="#overview">▦ Dashboard</a>
+      <a class="nav-link" href="#devices">▣ Perangkat</a>
+      <a class="nav-link" href="#traffic">◈ Lalu Lintas Data</a>
+      <a class="nav-link" href="#servers">▤ Status Server</a>
+    </nav>
+
+    <div class="nav-label nav-label-spaced">PREFERENSI</div>
+
+    <nav class="nav-menu">
+      <a class="nav-link" href="#settings">⚙ Pengaturan</a>
+      <a class="nav-link" href="#help">? Pusat Bantuan</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="upgrade-card">
+        <strong>Jaringan terlindungi</strong>
+        <p>Sistem monitoring berjalan dengan normal.</p>
+        <span class="secure-label">● PROTECTION ACTIVE</span>
+      </div>
+
+      <div class="sidebar-user">
+        <div class="avatar">AD</div>
+        <div class="user-meta">
+          <strong>Administrator</strong>
+          <small>Network Admin</small>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-area">
+
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="icon-button mobile-menu" id="menuToggle">☰</button>
+        <div>
+          <div class="eyebrow">NETWORK OVERVIEW ● LIVE</div>
+          <h1>Dashboard Monitoring</h1>
+        </div>
+      </div>
+
+      <div class="topbar-actions">
+        <div class="date-chip" id="dateText"></div>
+        <div class="avatar avatar-small">AD</div>
+        <span>Admin</span>
+      </div>
+    </header>
+
+    <section class="welcome-row" id="overview">
+      <div>
+        <h2>Selamat datang kembali, Admin ✦</h2>
+        <p>Berikut ringkasan kondisi jaringan Anda saat ini.</p>
+      </div>
+
+      <button class="primary-button" id="refreshBtn">
+        ↻ Refresh Data
+      </button>
+    </section>
+
+    <!-- STATISTIK -->
+    <section class="stats-grid">
+
+      <article class="stat-card">
+        <div class="stat-icon icon-blue">◉</div>
+        <p class="stat-label">Status Router</p>
+        <div class="stat-value">Online</div>
+        <div class="stat-foot">● Semua layanan beroperasi</div>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-icon icon-purple">⚙</div>
+        <p class="stat-label">Penggunaan CPU</p>
+        <div class="stat-value">24%</div>
+        <div class="mini-progress">
+          <span style="width:24%"></span>
+        </div>
+        <div class="stat-foot">Kapasitas prosesor terpakai</div>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-icon icon-green">♙</div>
+        <p class="stat-label">Total Pengguna</p>
+        <div class="stat-value">142 Aktif</div>
+        <div class="stat-foot">Pengguna terhubung ke jaringan</div>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-icon icon-orange">⌁</div>
+        <p class="stat-label">Bandwidth Terpakai</p>
+        <div class="stat-value">68.4 Mbps</div>
+        <div class="stat-foot">Kecepatan lalu lintas saat ini</div>
+      </article>
+
+    </section>
+
+    <!-- GRAFIK DAN SERVER -->
+    <section class="content-grid">
+
+      <article class="panel" id="traffic">
+        <div class="panel-heading">
+          <div>
+            <span class="section-kicker">PERFORMA JARINGAN</span>
+            <h3>Statistik Lalu Lintas Data</h3>
+            <p>Pemantauan penggunaan bandwidth</p>
+          </div>
+
+          <select class="period-select" id="periodSelect">
+            <option value="7">7 hari terakhir</option>
+            <option value="today">Hari ini</option>
+          </select>
+        </div>
+
+        <div class="chart-legend">
+          <span>🔵 Download</span>
+          <span>🟢 Upload</span>
+        </div>
+
+        <div class="chart-box">
+          <div class="chart-bars">
+            <div style="height:45%"></div>
+            <div style="height:70%"></div>
+            <div style="height:55%"></div>
+            <div style="height:85%"></div>
+            <div style="height:65%"></div>
+            <div style="height:95%"></div>
+            <div style="height:75%"></div>
+          </div>
+          <div class="chart-labels">
+            <span>Sen</span><span>Sel</span><span>Rab</span>
+            <span>Kam</span><span>Jum</span><span>Sab</span><span>Min</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel" id="servers">
+        <div class="panel-heading">
+          <div>
+            <span class="section-kicker">SERVER HEALTH</span>
+            <h3>Kondisi Server</h3>
+            <p>Status sumber daya sistem</p>
+          </div>
+          <span class="health-pill">● Sehat</span>
+        </div>
+
+        <div class="server-list">
+
+          <div class="server-item">
+            <div class="server-label">
+              <span>CPU Usage</span><strong>24%</strong>
+            </div>
+            <div class="progress-track">
+              <span class="bar-blue" style="width:24%"></span>
+            </div>
+          </div>
+
+          <div class="server-item">
+            <div class="server-label">
+              <span>Memory</span><strong>62%</strong>
+            </div>
+            <div class="progress-track">
+              <span class="bar-purple" style="width:62%"></span>
+            </div>
+          </div>
+
+          <div class="server-item">
+            <div class="server-label">
+              <span>Storage</span><strong>48%</strong>
+            </div>
+            <div class="progress-track">
+              <span class="bar-green" style="width:48%"></span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="server-footer">
+          <span>● Uptime</span>
+          <strong>12 hari 08 jam</strong>
+        </div>
+
+        <div class="server-footer">
+          <span>● Latensi</span>
+          <strong>12 ms</strong>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- TABEL PERANGKAT -->
+    <section class="panel device-panel" id="devices">
+
+      <div class="panel-heading device-heading">
+        <div>
+          <span class="section-kicker">CONNECTED DEVICES</span>
+          <h3>Aktivitas Perangkat Terbaru</h3>
+          <p>Daftar perangkat yang terdeteksi pada jaringan</p>
+        </div>
+
+        <div class="table-actions">
+          <input
+            type="search"
+            id="deviceSearch"
+            placeholder="Cari perangkat..."
+          >
+
+          <button class="outline-button" id="exportBtn">
+            ↓ Export
+          </button>
+        </div>
+      </div>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>IP ADDRESS</th>
+              <th>NAMA PERANGKAT</th>
+              <th>JENIS</th>
+              <th>STATUS</th>
+              <th>AKSI</th>
+            </tr>
+          </thead>
+
+          <tbody id="deviceTable">
+
+            <tr>
+              <td>192.168.1.10</td>
+              <td>PC-Laboratorium-01</td>
+              <td>Workstation</td>
+              <td><span class="badge badge-online">● Terhubung</span></td>
+              <td>
+                <button class="table-button detail-btn"
+                  data-device="PC-Laboratorium-01">Detail</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>192.168.1.15</td>
+              <td>Server-Lokal</td>
+              <td>Server</td>
+              <td><span class="badge badge-online">● Terhubung</span></td>
+              <td>
+                <button class="table-button detail-btn"
+                  data-device="Server-Lokal">Detail</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>192.168.1.22</td>
+              <td>Printer-Jaringan</td>
+              <td>Printer</td>
+              <td><span class="badge badge-offline">● Terputus</span></td>
+              <td>
+                <button class="table-button detail-btn"
+                  data-device="Printer-Jaringan">Detail</button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <div id="emptyState" hidden>
+          Perangkat tidak ditemukan.
+        </div>
+      </div>
+
+      <div class="table-bottom">
+        <span>Menampilkan <strong id="rowCount">3</strong> perangkat</span>
+        <span>Data contoh monitoring</span>
+      </div>
+
+    </section>
+
+    <footer class="footer">
+      <span>©️ 2026 NetPulse Dashboard</span>
+      <span>● Sistem berjalan normal · <span id="clock"></span></span>
+    </footer>
+
+  </main>
+</div>
+
+<!-- DETAIL PERANGKAT -->
+<dialog id="detailDialog" class="detail-dialog">
+  <button id="closeDialog" class="close-dialog">✕</button>
+  <h3 id="dialogName">Detail Perangkat</h3>
+  <p>Informasi perangkat pada jaringan lokal.</p>
+  <div>Alamat IP: <strong id="dialogIp"></strong></div>
+  <div>Jenis: <strong id="dialogType"></strong></div>
+  <div>Status: <strong id="dialogStatus"></strong></div>
+</dialog>
+
+<div class="toast" id="toast">Data berhasil diperbarui!</div>
+
+<script src="script.js"></script>
+</body>
+</html>
